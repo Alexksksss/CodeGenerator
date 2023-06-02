@@ -14,7 +14,7 @@ std::string generateProgram(std::shared_ptr<AbstractFactory> factory)
 
     std::shared_ptr< MethodUnit > method = factory->CreateMethod( "testFunc4", "void", MethodUnit::STATIC );
     method->add( factory->CreatePrintOperator( R"(Hello, world!\n)" ) );
-    myClass->add( method, ClassUnit::PROTECTED );
+    myClass->add(method, ClassUnit::PROTECTED);
 
     return myClass->compile();
 }

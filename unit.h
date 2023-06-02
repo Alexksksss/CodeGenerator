@@ -15,9 +15,9 @@ protected:
     virtual std::string generateShift(unsigned int level) const
     {
         static const auto DEFAULT_SHIFT = " ";
-        level *=4;
+        level *= 4;
         std::string result;
-        for( unsigned int i = 0; i < level; ++i )
+        for(unsigned int i = 0; i < level; ++i)
             result += DEFAULT_SHIFT;
         return result;
     }
