@@ -20,4 +20,9 @@ HEADERS += \
     unit.h \
     classunit.h \
     methodunit.h \
-    printoperatorunit.h
+    printoperatorunit.h \
+    abstractfactory.h \
+    cppfactory.h \
+    cppmethodunit.h \
+    cppprintoperatorunit.h \
+    cppclassunit.h

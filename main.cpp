@@ -2,26 +2,25 @@
 #include "classunit.h"
 #include "methodunit.h"
 #include "printoperatorunit.h"
+#include "abstractfactory.h"
+#include "cppfactory.h"
 
-std::string GenerateCode() {
-    ClassUnit myClass( "MyClass" );
-    myClass.add(std::make_shared< MethodUnit >( "testFunc1", "void", 0 ),ClassUnit::PUBLIC);
-    myClass.add(
-        std::make_shared< MethodUnit >( "testFunc2", "void", MethodUnit::STATIC ),ClassUnit::PRIVATE
-    );
-    myClass.add(
-        std::make_shared< MethodUnit >( "testFunc3", "void", MethodUnit::VIRTUAL | MethodUnit::CONST ),ClassUnit::PUBLIC
-    );
+std::string generateProgram(std::shared_ptr<AbstractFactory> factory)
+{
+    auto myClass = factory->CreateClass("MyClass");
+    myClass->add(factory->CreateMethod( "testFunc1", "void", 0 ),ClassUnit::PUBLIC);
+    myClass->add(factory->CreateMethod( "testFunc2", "void", MethodUnit::STATIC ),ClassUnit::PRIVATE);
+    myClass->add(factory->CreateMethod(  "testFunc3", "void", MethodUnit::VIRTUAL | MethodUnit::CONST ),ClassUnit::PUBLIC);
 
-    auto method = std::make_shared< MethodUnit >( "testFunc4", "void", MethodUnit::STATIC );
-    method->add( std::make_shared< PrintOperatorUnit >( R"(Hello, world!\n)" ) );
-    myClass.add( method, ClassUnit::PROTECTED );
+    std::shared_ptr< MethodUnit > method = factory->CreateMethod( "testFunc4", "void", MethodUnit::STATIC );
+    method->add( factory->CreatePrintOperator( R"(Hello, world!\n)" ) );
+    myClass->add( method, ClassUnit::PROTECTED );
 
-    return myClass.compile();
+    return myClass->compile();
 }
 
 int main()
 {
-    std::cout << GenerateCode() << std::endl;
+    std::cout << generateProgram(std::make_shared<CppFactory>()) << std::endl;
     return 0;
 }
