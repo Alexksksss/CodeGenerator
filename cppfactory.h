@@ -11,7 +11,7 @@ public:
     {
         return std::shared_ptr<ClassUnit>(new CppClassUnit(name));
     }
-    std::shared_ptr<MethodUnit> CreateMethod(const std::string& name, const std::string& returnType, unsigned int flags )
+    std::shared_ptr<MethodUnit> CreateMethod(const std::string& name, const std::string& returnType, unsigned int flags)
     {
         return std::shared_ptr<MethodUnit>(new CppMethodUnit(name,returnType, flags));
     }

@@ -7,7 +7,7 @@ class CppMethodUnit: public MethodUnit
 {
 public:
     CppMethodUnit(const std::string& name, const std::string& returnType, Flags flags):MethodUnit(name,returnType,flags){}
-    std::string compile( unsigned int level = 0 ) const{
+    std::string compile( unsigned int level = 0) const{
         std::string result = generateShift(level);
         if(GetFlags() & STATIC)
             result += "static ";

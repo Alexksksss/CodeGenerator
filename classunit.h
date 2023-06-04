@@ -24,7 +24,7 @@ public:
             accessModifier = flags;
         m_fields[accessModifier].push_back(unit); // Добавление подузла в соответствующий модификатор доступа
     }
-    std::string GetName() const{return m_name;} // Пол4чение имени класса
+    std::string GetName() const{return m_name;} // Получение имени класса
     Fields GetFields(unsigned int access_m)const{return m_fields[access_m];} // Получение полей класса по модификатору доступа
 private:
     std::string m_name;
