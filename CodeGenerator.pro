@@ -25,4 +25,8 @@ HEADERS += \
     cppfactory.h \
     cppmethodunit.h \
     cppprintoperatorunit.h \
-    cppclassunit.h
+    cppclassunit.h \
+    sharpclassunit.h \
+    sharpfactory.h \
+    sharpmethodunit.h \
+    sharpprintoperatorunit.h
