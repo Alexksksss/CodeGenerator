@@ -11,9 +11,10 @@ public:
             if(GetFields(i).empty())
                 continue;
             result += ACCESS_MODIFIERS[i] + ":\n";
-            for(const auto& f :GetFields(i))
+            for(const auto& f :GetFields(i)){
                 result += f->compile(level + 1);
-            result += "\n";
+                result += "\n";//пустая строка между методами
+            }
         }
         result += generateShift(level) + "};\n";
         return result;

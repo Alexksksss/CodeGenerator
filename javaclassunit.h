@@ -6,21 +6,20 @@ class JavaClassUnit:public ClassUnit
 public:
     JavaClassUnit(const std::string& name):ClassUnit(name){}
     std::string compile( unsigned int level = 0 ) const{
-        std::string result = generateShift( level ) + "class " + m_name + " {\n";
-        for( size_t i = 0; i < ACCESS_MODIFIERS.size(); ++i ) {
-            if( m_fields[i].empty() ) {
+        std::string result = generateShift(level) + "class " + GetName() + " {\n";
+        for( size_t i = 0; i < ACCESS_MODIFIERS.size()-3; ++i ) {
+            if(GetFields(i).empty())
                 continue;
+            result += ACCESS_MODIFIERS[i];
+            for(const auto& f :GetFields(i)){
+                result += f->compile(leve);
+                result += "\n";//пустая строка между методами
             }
-
-            for( const auto& f :m_fields[i] ) {
-                result += generateShift( level+1)+ACCESS_MODIFIERS[ i ] + " ";
-                result += f->compile( level );
-            }
-            result += "\n";
         }
-        result += generateShift( level ) + "};\n";
+        result += generateShift(level) + "};\n";
         return result;
     }
 };
+
 
 #endif // JAVACLASSUNIT_H

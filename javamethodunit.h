@@ -17,7 +17,7 @@ public:
         if(GetFlags() & FINAL)
             result += " final";
         result += " {\n";
-        for(const auto& b : GetBody())
+        for(const auto& b : GetBody() )
             result += b->compile(level + 1);
         result += generateShift(level) + "}\n";
         return result;
