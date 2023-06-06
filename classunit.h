@@ -25,7 +25,7 @@ public:
     // Добавление подузла в класс с указанием флагов доступа
     void add( const std::shared_ptr< Unit >& unit, Flags flags ) {
         int accessModifier = PRIVATE; // По умолчанию устанавливаем приватный доступ
-        if( flags < ACCESS_MODIFIERS.size() ) // Проверка корректности флага доступа
+        if(flags < ACCESS_MODIFIERS.size()) // Проверка корректности флага доступа
             accessModifier = flags;
         m_fields[accessModifier].push_back(unit); // Добавление подузла в соответствующий модификатор доступа
     }

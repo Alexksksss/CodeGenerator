@@ -29,4 +29,8 @@ HEADERS += \
     sharpclassunit.h \
     sharpfactory.h \
     sharpmethodunit.h \
-    sharpprintoperatorunit.h
+    sharpprintoperatorunit.h \
+    javaclassunit.h \
+    javafactory.h \
+    javamethodunit.h \
+    javaprintoperatorunit.h
