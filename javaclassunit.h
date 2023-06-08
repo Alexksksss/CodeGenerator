@@ -13,7 +13,7 @@ public:
             result += ACCESS_MODIFIERS[i];
             for(const auto& f :GetFields(i)){
                 result += f->compile(leve);
-                result += "\n";//пустая строка между методами
+                result += "\n\n";//пустая строка между методами
             }
         }
         result += generateShift(level) + "};\n";
